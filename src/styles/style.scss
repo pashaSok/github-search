@@ -1,0 +1,269 @@
+$hover:#5a5454;
+$active:#302d2d;
+$textareaPlaceholder:#808080;
+$blue:#0064EB;
+.container{
+    width: 1366px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 29px 57px 0;
+}
+.header-wrapper{
+    background: $blue;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 72px;
+    padding: 0px 41px;
+    .icon-wrapper{
+        width: 41px;
+        height: 40px;
+        margin-right: 22px;
+        .github-icon{
+            width: 41px;
+            height: 40px;
+            border-radius: 50%;
+            fill: #fff;
+            transition: 0.5s;
+            &:hover{
+                fill: rgb(167, 153, 153);
+            }
+            &:active{
+                fill: $active;
+            }
+        }
+    }
+}
+
+.form-search{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 500px;
+    background-color: #fff;
+    border-radius: 6px;
+        .icon-wrapper{
+            display: flex;
+            align-items: center;
+            margin-right: 0;
+            justify-content: center;
+            &:hover{
+                .search-icon{
+                    fill: $hover;
+                }
+            }
+            &:active{
+                .search-icon{
+                    fill: $active;
+                }
+            }
+            .search-icon{
+                width: 14px;
+                height: 14px;
+                fill: $textareaPlaceholder;
+                transition: 0.5s;
+            }
+    }
+    .name-search{
+        border: 0;
+        resize: none;
+        width: 100%;
+        display: flex;
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        overflow: hidden;
+        &::-webkit-input-placeholder {
+            color: $textareaPlaceholder;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+            color: $textareaPlaceholder;  
+        }
+        &::-moz-placeholder {  /* Firefox 19+ */
+            color: $textareaPlaceholder;  
+        }
+        &:-ms-input-placeholder {
+            color: $textareaPlaceholder;  
+        }
+        &::placeholder {
+            color: $textareaPlaceholder;  
+        }
+    }
+}
+.repo-wrapper{
+    width: 100%;
+    height: 100vh;
+    .repo-number{
+        display: inline-block;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 130%;
+        margin-bottom: 29px;
+    }
+    .repo-items-wrapper{
+        display: flex;
+        flex-direction: column;
+        .repo-item{
+            display: flex;
+            flex-direction: column;
+            padding: 24px 0 24px 32px;
+            margin-bottom: 24px;
+            border: 1px solid black;
+            width: 75%;
+            a{
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 29px;
+                color: $blue;
+                margin-bottom: 16px;
+            }
+            span{
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+            }
+        }
+    }
+}
+.void-page-wrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    .icon-wrapper{
+        width: 64px;
+        height: 64px;
+        margin-bottom: 47px;
+        svg{
+            width: 64px;
+            height: 64px;
+            fill: $textareaPlaceholder;
+        }
+    }
+    span{
+        width: 210px;
+        color: $textareaPlaceholder;
+        font-family: 'Inter';
+        font-size: 22px;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        line-height: 140%;
+    }
+}
+.repository-empty-page{
+    span{
+        width: 100%;
+    }
+}
+.aside{
+    width: 280px;
+    height: 100vh;
+    padding: 0 57px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .aside__image-wrapper{
+        width: 280px;
+        height: 280px;
+        margin-bottom: 29px;
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+    .user-name{
+        display: inline-block;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 26px;
+        line-height: 130%;
+        margin-bottom: 12px;
+    }
+    .github-name{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: #0064EB;
+        transition: 0.5s;
+        margin-bottom: 25px;
+        &:hover{
+            color: #023c88;
+        }
+        &:active{
+            color: #237ff7;
+        }
+    }
+    .follow{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .follow-wrapper{
+            display: flex;
+            align-items: center;
+            .icon-wrapper{
+                width: 22px;
+                height: 16px;
+                display: flex;
+                justify-content: space-between;
+                .followers-icon{
+                    //margin-right: 9px;
+                    width: 22px;
+                    height: 16px;
+                    fill: $textareaPlaceholder;
+                }
+                .following-icon{
+                    //margin-right: 12px;
+                    width: 16px;
+                    height: 16px;
+                    fill: $textareaPlaceholder;
+                }
+            }
+            span{
+                display: inline-block;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 150%;
+                color: #000000;
+                margin-left: 10px;
+            }
+        }
+    }
+}
+.spin-wrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    .spinner{
+        height: 64px;
+        width: 64px;
+        border: 7px solid transparent;
+        border-top-color: $textareaPlaceholder;
+        border-radius: 50%;
+        animation: spin 2s linear infinite;
+    }
+  }
+  @keyframes spin{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+  }
