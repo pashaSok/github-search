@@ -19,15 +19,20 @@ export default class Input extends Component{
         const inputUserName = event.target.value;
         this.setState({userName: inputUserName});
     }
+    handleSubmit = e =>{
+        if(e.keyCode === 13){
+            this.getUserInfo();
+        }
+    }
     render() {
         const {userName}=this.state;
         return (
-            <form className="form-search" onSubmit={this.getUserInfo}>
+            <div className="form-search" onKeyDown={this.handleSubmit}>
                 <a href='#' className="icon-wrapper" onClick={this.getUserInfo}>
                     <svg className="search-icon"><use xlinkHref="../assets/sprite.svg#nameSearch"></use></svg>
                 </a>
                 <input className="name-search" rows='1' placeholder="Enter GitHub username"  onChange={this.inputChange}></input>
-            </form>
+            </div>
         );
       }
 }

@@ -14,14 +14,14 @@ export default class RepoInfo extends Component{
             <div className="repo-wrapper">
                 <span className="repo-number">Repositories ({userRepo.length})</span>
                 <div className="repo-items-wrapper">
-                {userRepo.map(element=>{
-                return(
-                <div className="repo-item">
-                    <a href={element.html_url} target='_blanck'>{element.name}</a>
-                    <span>{element.description}</span>
-                </div>
-                )
-            })}
+                    {userRepo.map(element=>{
+                        return(
+                            <div className="repo-item" key={element.id}>
+                                <a href={element.html_url} target='_blanck'>{element.name}</a>
+                                <span>{element.description}</span>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         );
