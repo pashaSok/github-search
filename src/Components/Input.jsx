@@ -10,7 +10,7 @@ export default class Input extends Component{
         this.props.setLoading(true);
         const userRespose = await fetch(`https://api.github.com/users/${this.state.userName}`);
 	    const userData = await userRespose.json();
-        const repoResponse = await fetch(`https://api.github.com/users/${this.state.userName}/repos`);
+        const repoResponse = await fetch(`https://api.github.com/users/${this.state.userName}/repos?page=1&per_page=100`);
         const repoData = await repoResponse.json();
         this.props.setUser(userData, repoData);
         this.props.setLoading(false);
@@ -21,7 +21,7 @@ export default class Input extends Component{
     }
     handleSubmit = e =>{
         if(e.keyCode === 13){
-            this.getUserInfo();
+            this.getUserInfo();       
         }
     }
     render() {

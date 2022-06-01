@@ -18,6 +18,7 @@ class App extends Component{
     }
     render(){
         const {user,userRepo,loadingInProgress} = this.state; 
+        console.log(user);
         return(
             <Router>
                 <Header setUser={this.handleUserChange} setLoading={this.handleLoading}/>

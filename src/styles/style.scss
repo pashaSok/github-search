@@ -1,7 +1,7 @@
 $hover:#5a5454;
 $active:#302d2d;
 $textareaPlaceholder:#808080;
-$blue:#0064EB;
+$blue:#0064eb;
 $hoverBlue:#023c88;
 $activeBlue:#237ff7;
 .container{
@@ -94,7 +94,7 @@ $activeBlue:#237ff7;
     }
 }
 .repo-container{
-    height: 100vh;
+    position: relative;
     .repo-wrapper{
         width: 100%;
         .repo-number{
@@ -112,9 +112,8 @@ $activeBlue:#237ff7;
             .repo-item{
                 display: flex;
                 flex-direction: column;
-                padding: 24px 0 24px 32px;
-                margin-bottom: 24px;
-                width: 75%;
+                width: 877px;
+                height: 112px;
                 a{
                     display: inline-block;
                     vertical-align: top;
@@ -144,6 +143,48 @@ $activeBlue:#237ff7;
                 }
             }
         }
+    }
+    .pagination-wrapper{
+        display: flex;
+        justify-content: space-between;
+        width: 337px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            cursor: pointer;
+          }
+          
+          .pagination li{
+            width: 21px;
+            height: 25px;
+            border-radius: 3px;
+          }
+          .pagination li a{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $textareaPlaceholder;
+          }
+          
+          .pagination__link {
+            font-weight: bold;
+          }
+          .pagination__link--active{
+            background: $blue;
+          }
+          .pagination__link--active a {
+            color: #fff !important;
+          }
+          
+          .pagination__link--disabled a {
+            color: rgb(198, 197, 202);
+          }
     }
 }
 
@@ -281,19 +322,5 @@ $activeBlue:#237ff7;
     0% {transform: rotate(0deg);}
     100% {transform: rotate(360deg);}
   }
-.repo-container{
-    display: flex;
-    flex-direction: column;
-    .pagination{
-        display: flex;
-        justify-content: space-between;
-        width: 337px;
-        .page-item{
-            text-align: center;
-            vertical-align: middle;
-            width: 21px;
-            height: 25px;
-            background-color: $blue;
-        }
-    }
-}
+
+  

@@ -1,22 +1,36 @@
 import React, {Component, ReactNode} from "react";
+import ReactPaginate from 'react-paginate';
 
 
 export default class Pagination extends Component{
 
+    handlePageClick = (event) => {
+        const newOffset = (event.selected * this.props.itemsPerPage) % this.props.userRepo.length;
+        this.props.setItemsOffset(newOffset);
+        const endOffset = newOffset + this.props.itemsPerPage;
+        this.props.setCurrentItems(this.props.userRepo.slice(newOffset, endOffset));
+        this.props.setPageCount(Math.ceil(this.props.userRepo.length / this.props.itemsPerPage));
+    }
+
     render() {
-
-        const {currentItems}=this.props;
-
+        const {pageCount}=this.props;
         return (
-            <ul className="pagination">
-                {currentItems.map(item=>{
-                    return(
-                    <li className="page-item" key={item}>
-                        {item}
-                    </li>
-                    )
-                })}
-            </ul>
-        );
+            <div className="pagination-wrapper">
+            <ReactPaginate
+                breakLabel="..."
+                nextLabel=">"
+                onPageChange={this.handlePageClick}
+                containerClassName={"pagination"}
+                previousLinkClassName={"pagination__link"}
+                nextLinkClassName={"pagination__link"}
+                disabledClassName={"pagination__link--disabled"}
+                activeClassName={"pagination__link--active"}
+                pageRangeDisplayed={1}
+                pageCount={pageCount}
+                previousLabel="<"
+                renderOnZeroPageCount={null}
+            />
+            </div>
+        )
       }
 }
