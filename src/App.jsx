@@ -8,7 +8,8 @@ class App extends Component{
     state={
         user:null,
         userRepo:null,
-        loadingInProgress:false
+        loadingInProgress:false,
+        currentPage:1
     }
     handleUserChange = (user,userRepo) =>{
         this.setState({user,userRepo});
@@ -16,14 +17,26 @@ class App extends Component{
     handleLoading = (loadingInProgress) =>{
         this.setState({loadingInProgress});
     }
+    handleCurrentPage=(currentPage) =>{
+        this.setState({currentPage});
+    }
     render(){
-        const {user,userRepo,loadingInProgress} = this.state; 
-        console.log(user);
+        const {user,userRepo,loadingInProgress,currentPage} = this.state; 
         return(
             <Router>
-                <Header setUser={this.handleUserChange} setLoading={this.handleLoading}/>
+                <Header setUser={this.handleUserChange} setLoading={this.handleLoading} currentPage={currentPage} />
                 <Routes>
-                    <Route path='/' element={<PageContentContainer loadingInProgress={loadingInProgress} user={user} userRepo={userRepo}/>}></Route>
+                    <Route path='/' element={
+                        <PageContentContainer 
+                            loadingInProgress={loadingInProgress} 
+                            user={user} 
+                            userRepo={userRepo} 
+                            setCurrentPage={this.handleCurrentPage} 
+                            currentPage={currentPage}
+                            setUser={this.handleUserChange}
+                        />}
+                    >
+                    </Route>
                 </Routes>
             </Router>
         )

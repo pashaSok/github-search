@@ -4,39 +4,46 @@ $textareaPlaceholder:#808080;
 $blue:#0064eb;
 $hoverBlue:#023c88;
 $activeBlue:#237ff7;
+body{
+    background-color: #e5e5e5;
+}
 .container{
-    width: 1366px;
+    width: 1254px;
     margin: 0 auto;
     display: flex;
-    padding: 29px 57px 0;
+    justify-content: space-between;
+    margin-top: 28px;
 }
-.header-wrapper{
+header{
     background: $blue;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 72px;
-    padding: 0px 41px;
-    .icon-wrapper{
-        width: 41px;
-        height: 40px;
-        margin-right: 22px;
-        .github-icon{
+    display: flex !important;
+    justify-content: center;
+    .header-container{
+        padding: 0px 41px;
+        display: flex;
+        align-items: center;
+        width: 1284px;
+        height: 72px;
+        .icon-wrapper{
             width: 41px;
             height: 40px;
-            border-radius: 50%;
-            fill: #fff;
-            transition: 0.5s;
-            &:hover{
-                fill: rgb(167, 153, 153);
-            }
-            &:active{
-                fill: $active;
+            margin-right: 22px;
+            .github-icon{
+                width: 41px;
+                height: 40px;
+                border-radius: 50%;
+                fill: #fff;
+                transition: 0.5s;
+                &:hover{
+                    fill: rgb(167, 153, 153);
+                }
+                &:active{
+                    fill: $active;
+                }
             }
         }
-    }
+    }    
 }
-
 .form-search{
     display: flex;
     align-items: center;
@@ -47,7 +54,7 @@ $activeBlue:#237ff7;
         .icon-wrapper{
             display: flex;
             align-items: center;
-            margin-right: 0;
+            margin-right: 0 !important;
             justify-content: center;
             &:hover{
                 .search-icon{
@@ -95,6 +102,11 @@ $activeBlue:#237ff7;
 }
 .repo-container{
     position: relative;
+    min-height: 696px;
+    width: 877px;
+    .repo-empty{
+        transform: translateY(-72px);
+    }
     .repo-wrapper{
         width: 100%;
         .repo-number{
@@ -112,8 +124,12 @@ $activeBlue:#237ff7;
             .repo-item{
                 display: flex;
                 flex-direction: column;
-                width: 877px;
-                height: 112px;
+                width: 813px;
+                min-height: 64px;
+                overflow: hidden;
+                background: #fff;
+                margin-bottom: 24px;
+                padding: 24px 32px;
                 a{
                     display: inline-block;
                     vertical-align: top;
@@ -147,11 +163,13 @@ $activeBlue:#237ff7;
     .pagination-wrapper{
         display: flex;
         justify-content: space-between;
-        width: 337px;
+        width: 202px;
         position: absolute;
         bottom: 0;
         right: 0;
+        margin-bottom: 28px;
         .pagination {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             list-style: none;
@@ -187,14 +205,11 @@ $activeBlue:#237ff7;
           }
     }
 }
-
 .void-page-wrapper{
-    width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: center;
+    height: 624px;
     justify-content: center;
     .icon-wrapper{
         width: 64px;
@@ -217,6 +232,7 @@ $activeBlue:#237ff7;
         line-height: 140%;
     }
 }
+
 .repository-empty-page{
     span{
         width: 100%;
@@ -224,8 +240,7 @@ $activeBlue:#237ff7;
 }
 .aside{
     width: 280px;
-    height: 100vh;
-    padding: 0 57px 0 0;
+    margin-top: 11px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

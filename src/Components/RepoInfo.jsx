@@ -4,15 +4,17 @@ import RepositoryIsEmpty from "./RepositoryIsEmpty";
 export default class RepoInfo extends Component{
 
     render() {
-        const {userRepo,currentItems}= this.props;
+        const {userRepo,currentItems,user}= this.props;
         if(!userRepo.length){
             return(
-                <RepositoryIsEmpty/>
+                <div className="repo-empty">
+                    <RepositoryIsEmpty/>
+                </div>
             );
         }
         return (
             <div className="repo-wrapper">
-                <span className="repo-number">Repositories ({userRepo.length})</span>
+                <span className="repo-number">Repositories ({user.public_repos})</span>
                 <div className="repo-items-wrapper">
                     {currentItems.map(element=>{
                         return(

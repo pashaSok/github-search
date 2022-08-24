@@ -3,13 +3,13 @@ import ReactPaginate from 'react-paginate';
 
 
 export default class Pagination extends Component{
-
     handlePageClick = (event) => {
-        const newOffset = (event.selected * this.props.itemsPerPage) % this.props.userRepo.length;
+        const newOffset = (event.selected * this.props.itemsPerPage) % this.props.user.public_repos;
+        this.props.setCurrentPage(newOffset/4+1);
         this.props.setItemsOffset(newOffset);
         const endOffset = newOffset + this.props.itemsPerPage;
         this.props.setCurrentItems(this.props.userRepo.slice(newOffset, endOffset));
-        this.props.setPageCount(Math.ceil(this.props.userRepo.length / this.props.itemsPerPage));
+        this.props.setPageCount(Math.ceil(this.props.user.public_repos / this.props.itemsPerPage));
     }
 
     render() {
@@ -26,6 +26,7 @@ export default class Pagination extends Component{
                 disabledClassName={"pagination__link--disabled"}
                 activeClassName={"pagination__link--active"}
                 pageRangeDisplayed={1}
+                marginPagesDisplayed={1}
                 pageCount={pageCount}
                 previousLabel="<"
                 renderOnZeroPageCount={null}

@@ -7,7 +7,7 @@ import Loading from "./Loading";
 export default class PageContentContainer extends Component{
 
     render() {
-        const {user, userRepo,loadingInProgress} = this.props;
+        const {user, userRepo,loadingInProgress, setCurrentPage, currentPage, setUser} = this.props;
         if(loadingInProgress){
             return(
                 <Loading/>
@@ -24,7 +24,7 @@ export default class PageContentContainer extends Component{
             );
         }
         return(
-            <UserPage user={user} userRepo={userRepo}/>
+            <UserPage user={user} userRepo={userRepo} setCurrentPage={setCurrentPage} currentPage={currentPage} setUser={setUser}/>
         );
       }
 }
