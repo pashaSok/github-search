@@ -11,17 +11,17 @@ export default class Input extends Component{
         const userRespose = await fetch(`https://api.github.com/users/${this.state.userName}`,
         {
             method:'GET',
-            headers:{
-                Authorization: 'token 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' 
-            }
+            // headers:{
+            //     Authorization: 'token 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' 
+            // }
         });
 	    const userData = await userRespose.json();
         const repoResponse = await fetch(`https://api.github.com/users/${this.state.userName}/repos?page=${this.props.currentPage}&per_page=4&sort=updated`,
         {
             method:'GET',
-            headers:{
-                Authorization: 'token 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' 
-            }
+            // headers:{
+            //     Authorization: 'token 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' 
+            // }
         });
         const repoData=await repoResponse.json();
         this.props.setUser(userData, repoData);

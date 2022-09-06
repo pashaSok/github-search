@@ -15,9 +15,9 @@ export default class UserPage extends Component{
             const repoResponse = await fetch(`https://api.github.com/users/${this.props.user.login}/repos?page=${this.props.currentPage}&per_page=4&sort=updated`,
             {
                 method:'GET',
-                headers:{
-                    Authorization: 'token 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' 
-                }
+                // headers:{
+                //     Authorization: 'token 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' 
+                // }
             });
             const repoData=await repoResponse.json();
             this.props.setUser(this.props.user, repoData);
